@@ -7,12 +7,12 @@ import {
 } from "@ethereum-sourcify/lib-sourcify";
 import { getAddress, isAddress } from "ethers";
 
-export const validateSingleAddress = (address: string): boolean => {
-  if (!isAddress(address)) {
-    throw new BadRequestError(`Invalid address: ${address}`);
-  }
-  return true; // if it doesn't throw
-};
+// export const validateSingleAddress = (address: string): boolean => {
+//   if (!isAddress(address)) {
+//     throw new BadRequestError(`Invalid address: ${address}`);
+//   }
+//   return true; // if it doesn't throw
+// };
 
 export const validateAddresses = (addresses: string): boolean => {
   const addressesArray = addresses.split(",");

@@ -7,31 +7,31 @@ import {
 } from "@ethereum-sourcify/lib-sourcify";
 import { getAddress, isAddress } from "ethers";
 
-// export const validateSingleAddress = (address: string): boolean => {
-//   if (!isAddress(address)) {
-//     throw new BadRequestError(`Invalid address: ${address}`);
-//   }
-//   return true; // if it doesn't throw
-// };
-
-export const validateAddresses = (addresses: string): boolean => {
-  const addressesArray = addresses.split(",");
-  const invalidAddresses: string[] = [];
-  for (const i in addressesArray) {
-    const address = addressesArray[i];
-    if (!isAddress(address)) {
-      invalidAddresses.push(address);
-    } else {
-      addressesArray[i] = getAddress(address);
-    }
-  }
-
-  if (invalidAddresses.length) {
-    throw new BadRequestError(
-      `Invalid addresses: ${invalidAddresses.join(", ")}`
-    );
+export const validateSingleAddress = (address: string): boolean => {
+  if (!isAddress(address)) {
+    throw new BadRequestError(`Invalid address: ${address}`);
   }
   return true; // if it doesn't throw
+};
+
+// export const validateAddresses = (addresses: string): boolean => {
+//   const addressesArray = addresses.split(",");
+//   const invalidAddresses: string[] = [];
+//   for (const i in addressesArray) {
+//     const address = addressesArray[i];
+//     if (!isAddress(address)) {
+//       invalidAddresses.push(address);
+//     } else {
+//       addressesArray[i] = getAddress(address);
+//     }
+//   }
+
+if (invalidAddresses.length) {
+  throw new BadRequestError(
+    `Invalid addresses: ${invalidAddresses.join(", ")}`
+  );
+}
+return true; // if it doesn't throw
 };
 
 /**
